@@ -38,3 +38,7 @@ keymap("n", "<leader>ps", '<cmd>lua vim.pack.update()<CR>')
 
 -- Neogit (magit-like interface)
 keymap("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Neogit" })
+
+-- Telescope file pickers
+keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { desc = "Find files in current directory" })
+keymap("n", "<leader>pf", "<cmd>Telescope git_files<CR>", { desc = "Find files in project (git)" })
