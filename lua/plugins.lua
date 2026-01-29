@@ -1,4 +1,4 @@
--- ~/.config/nvim-new/lua/plugins.lua
+
 vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
 })
@@ -86,17 +86,52 @@ require("monokai-pro").setup({
 })
 
 vim.cmd.colorscheme("monokai-pro")
-
--- Treesitter
 vim.pack.add({
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter",
+		version = "master",
+	},
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter-context",
+		version = "v1.0.0",
+	},
+})
+require("treesitter-context").setup()
+
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"lua",
+		"c",
+		"cpp",
+		"python",
+		"rust",
+        "javascript"
+	},
+	auto_install = false,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
+	},
 })
 
-require('nvim-treesitter').install({ 'go', 'markdown', 'markdown_inline' })
-
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'go', 'markdown' },
-    callback = function() vim.treesitter.start() end,
+vim.api.nvim_create_autocmd("PackChanged", {
+	desc = "Handle nvim-treesitter updates",
+	group = vim.api.nvim_create_augroup("nvim-treesitter-pack-changed-update-handler", { clear = true }),
+	callback = function(event)
+		if event.data.kind == "update" then
+			vim.notify("nvim-treesitter updated, running TSUpdate...", vim.log.levels.INFO)
+			---@diagnostic disable-next-line: param-type-mismatch
+			local ok = pcall(vim.cmd, "TSUpdate")
+			if ok then
+				vim.notify("TSUpdate completed successfully!", vim.log.levels.INFO)
+			else
+				vim.notify("TSUpdate command not available yet, skipping", vim.log.levels.WARN)
+			end
+		end
+	end,
 })
 
 -- Flash.nvim (quick navigation)
@@ -112,3 +147,13 @@ keymap({ "n", "x", "o" }, "gS", function() require("flash").treesitter() end, { 
 keymap("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
 keymap({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
 keymap("c", "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
+
+-- Incremental selection (treesitter-based)
+vim.pack.add({
+    { src = "https://github.com/daliusd/incr.nvim" },
+})
+
+require('incr').setup({
+    incr_key = '<CR>',
+    decr_key = '<BS>',
+})
