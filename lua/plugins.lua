@@ -86,3 +86,29 @@ require("monokai-pro").setup({
 })
 
 vim.cmd.colorscheme("monokai-pro")
+
+-- Treesitter
+vim.pack.add({
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+})
+
+require('nvim-treesitter').install({ 'go', 'markdown', 'markdown_inline' })
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'go', 'markdown' },
+    callback = function() vim.treesitter.start() end,
+})
+
+-- Flash.nvim (quick navigation)
+vim.pack.add({
+    { src = "https://github.com/folke/flash.nvim" },
+})
+
+require('flash').setup({})
+
+local keymap = vim.keymap.set
+keymap({ "n", "x", "o" }, "gs", function() require("flash").jump() end, { desc = "Flash" })
+keymap({ "n", "x", "o" }, "gS", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
+keymap("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
+keymap({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
+keymap("c", "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })

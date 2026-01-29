@@ -20,7 +20,7 @@ keymap("n", "<Leader>q", "<cmd>q<CR>", s) -- Quit Neovim
 keymap("n", "<Leader>te", "<cmd>tabnew<CR>", s) -- Open a new tab
 keymap("n", "<Leader>_", "<cmd>vsplit<CR>", s) -- Split the window vertically
 keymap("n", "<Leader>-", "<cmd>split<CR>", s) -- Split the window horizontally
-keymap("n", "<Leader>fo", ":lua vim.lsp.buf.format()<CR>", s) -- Format the current buffer using LSP
+-- keymap("n", "<Leader>fo", ":lua vim.lsp.buf.format()<CR>", s) -- Format the current buffer using LSP
 keymap("v", "<Leader>p", '"_dP') -- Paste without overwriting the default register
 keymap("x", "y", [["+y]], s) -- Yank to the system clipboard in visual mode
 keymap("t", "<Esc>", "<C-\\><C-N>") -- Exit terminal mode
@@ -40,5 +40,8 @@ keymap("n", "<leader>ps", '<cmd>lua vim.pack.update()<CR>')
 keymap("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Neogit" })
 
 -- Telescope file pickers
-keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { desc = "Find files in current directory" })
+keymap("n", "<leader>f", function()
+    require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Find files in current file's directory" })
+keymap("n", "<leader>F", "<cmd>Telescope find_files<CR>", { desc = "Find files in cwd" })
 keymap("n", "<leader>pf", "<cmd>Telescope git_files<CR>", { desc = "Find files in project (git)" })
