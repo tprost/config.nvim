@@ -1,5 +1,5 @@
-require('configs')
-require('keymaps')
-require('autocmds')
 require('plugins')
+require('configs')
+require('autocmds')
 require('lsp')
+require('keymaps')

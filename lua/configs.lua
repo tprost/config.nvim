@@ -96,3 +96,7 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+-- ~/.config/nvim-new/lua/configs.lua
+vim.g.netrw_liststyle = 1 -- Use the long listing view
+vim.g.netrw_sort_by = "size" -- Sort files by size

@@ -93,14 +93,11 @@ require('fzf-lua').setup({
     }
 })
 vim.pack.add({
-  { src = 'https://github.com/vieitesss/miniharp.nvim' }
+  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' }
 })
 
-require('miniharp').setup({
-  autoload = true, -- load marks for this cwd on startup (default: true)
-  autosave = true, -- save marks for this cwd on exit (default: true)
-  show_on_autoload = true, -- show popup list after a successful autoload (default: false)
-})
+local harpoon = require('harpoon')
+harpoon:setup()
 
 -- Add which-key for displaying keybindings
 vim.pack.add({
@@ -120,11 +117,6 @@ vim.pack.add({
 		version = "v1.0.0",
 	},
 })
-vim.keymap.set('n', '<leader>m', require('miniharp').toggle_file, { desc = 'miniharp: toggle file mark' })
-vim.keymap.set('n', '<M-n>',     require('miniharp').next,        { desc = 'miniharp: next file mark' })
-vim.keymap.set('n', '<M-p>',     require('miniharp').prev,        { desc = 'miniharp: prev file mark' })
-vim.keymap.set('n', '<leader>l', require('miniharp').show_list,   { desc = 'miniharp: list marks' })
-
 require("treesitter-context").setup()
 
 require("nvim-treesitter.configs").setup({
@@ -226,13 +218,6 @@ vim.pack.add({
 })
 
 require('flash').setup({})
-
-local keymap = vim.keymap.set
-keymap({ "n", "x", "o" }, "gs", function() require("flash").jump() end, { desc = "Flash" })
-keymap({ "n", "x", "o" }, "gS", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
-keymap("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
-keymap({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
-keymap("c", "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
 
 -- Incremental selection (treesitter-based)
 vim.pack.add({

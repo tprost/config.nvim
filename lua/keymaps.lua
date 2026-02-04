@@ -48,59 +48,82 @@ keymap("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Neogit" })
 -- -- ~/.config/nvim-new/lua/keymaps.lua
 -- 
 -- Quick access (outside <leader>z namespace)
-keymap("n", "<leader>f", '<cmd>FzfLua files<CR>')
+keymap("n", "<leader>.", '<cmd>FzfLua files<CR>')
 keymap("n", "<leader>b", '<cmd>FzfLua buffers<CR>')
-keymap("n", "<leader>.", '<cmd>FzfLua live_grep<CR>')
+keymap("n", "<leader>/", '<cmd>FzfLua live_grep<CR>')
 keymap("n", "<leader>pf", '<cmd>FzfLua git_files<CR>')
 
 -- FzfLua keybindings with <leader>z prefix
 -- Files and Buffers
-keymap("n", "<leader>zf", '<cmd>FzfLua files<CR>', { desc = "FzfLua: Find files" })
-keymap("n", "<leader>zb", '<cmd>FzfLua buffers<CR>', { desc = "FzfLua: Buffers" })
-keymap("n", "<leader>zo", '<cmd>FzfLua oldfiles<CR>', { desc = "FzfLua: Old files" })
-keymap("n", "<leader>zh", '<cmd>FzfLua history<CR>', { desc = "FzfLua: History" })
-keymap("n", "<leader>zl", '<cmd>FzfLua lines<CR>', { desc = "FzfLua: Buffer lines" })
-keymap("n", "<leader>zL", '<cmd>FzfLua blines<CR>', { desc = "FzfLua: Current buffer lines" })
-keymap("n", "<leader>zt", '<cmd>FzfLua tabs<CR>', { desc = "FzfLua: Tabs" })
-keymap("n", "<leader>za", '<cmd>FzfLua args<CR>', { desc = "FzfLua: Args" })
+keymap("n", "<leader>ff", '<cmd>FzfLua files<CR>', { desc = "FzfLua: Find files" })
+keymap("n", "<leader>fb", '<cmd>FzfLua buffers<CR>', { desc = "FzfLua: Buffers" })
+keymap("n", "<leader>fo", '<cmd>FzfLua oldfiles<CR>', { desc = "FzfLua: Old files" })
+keymap("n", "<leader>fh", '<cmd>FzfLua history<CR>', { desc = "FzfLua: History" })
+keymap("n", "<leader>fl", '<cmd>FzfLua lines<CR>', { desc = "FzfLua: Buffer lines" })
+keymap("n", "<leader>fL", '<cmd>FzfLua blines<CR>', { desc = "FzfLua: Current buffer lines" })
+keymap("n", "<leader>ft", '<cmd>FzfLua tabs<CR>', { desc = "FzfLua: Tabs" })
+keymap("n", "<leader>fa", '<cmd>FzfLua args<CR>', { desc = "FzfLua: Args" })
 
 -- Search
-keymap("n", "<leader>zs", '<cmd>FzfLua live_grep<CR>', { desc = "FzfLua: Live grep" })
-keymap("n", "<leader>z/", '<cmd>FzfLua grep<CR>', { desc = "FzfLua: Grep" })
-keymap("n", "<leader>zS", '<cmd>FzfLua grep_curbuf<CR>', { desc = "FzfLua: Grep current buffer" })
-keymap("n", "<leader>zw", '<cmd>FzfLua grep_cword<CR>', { desc = "FzfLua: Grep word under cursor" })
-keymap("n", "<leader>zW", '<cmd>FzfLua grep_cWORD<CR>', { desc = "FzfLua: Grep WORD under cursor" })
+keymap("n", "<leader>fs", '<cmd>FzfLua live_grep<CR>', { desc = "FzfLua: Live grep" })
+keymap("n", "<leader>f/", '<cmd>FzfLua grep<CR>', { desc = "FzfLua: Grep" })
+keymap("n", "<leader>fS", '<cmd>FzfLua grep_curbuf<CR>', { desc = "FzfLua: Grep current buffer" })
+keymap("n", "<leader>fw", '<cmd>FzfLua grep_cword<CR>', { desc = "FzfLua: Grep word under cursor" })
+keymap("n", "<leader>fW", '<cmd>FzfLua grep_cWORD<CR>', { desc = "FzfLua: Grep WORD under cursor" })
 
 -- Git
-keymap("n", "<leader>zgf", '<cmd>FzfLua git_files<CR>', { desc = "FzfLua: Git files" })
-keymap("n", "<leader>zgs", '<cmd>FzfLua git_status<CR>', { desc = "FzfLua: Git status" })
-keymap("n", "<leader>zgc", '<cmd>FzfLua git_commits<CR>', { desc = "FzfLua: Git commits" })
-keymap("n", "<leader>zgC", '<cmd>FzfLua git_bcommits<CR>', { desc = "FzfLua: Git buffer commits" })
-keymap("n", "<leader>zgb", '<cmd>FzfLua git_branches<CR>', { desc = "FzfLua: Git branches" })
-keymap("n", "<leader>zgt", '<cmd>FzfLua git_stash<CR>', { desc = "FzfLua: Git stash" })
+keymap("n", "<leader>fgf", '<cmd>FzfLua git_files<CR>', { desc = "FzfLua: Git files" })
+keymap("n", "<leader>fgs", '<cmd>FzfLua git_status<CR>', { desc = "FzfLua: Git status" })
+keymap("n", "<leader>fgc", '<cmd>FzfLua git_commits<CR>', { desc = "FzfLua: Git commits" })
+keymap("n", "<leader>fgC", '<cmd>FzfLua git_bcommits<CR>', { desc = "FzfLua: Git buffer commits" })
+keymap("n", "<leader>fgb", '<cmd>FzfLua git_branches<CR>', { desc = "FzfLua: Git branches" })
+keymap("n", "<leader>fgt", '<cmd>FzfLua git_stash<CR>', { desc = "FzfLua: Git stash" })
 
 -- LSP
-keymap("n", "<leader>zlr", '<cmd>FzfLua lsp_references<CR>', { desc = "FzfLua: LSP references" })
-keymap("n", "<leader>zld", '<cmd>FzfLua lsp_definitions<CR>', { desc = "FzfLua: LSP definitions" })
-keymap("n", "<leader>zli", '<cmd>FzfLua lsp_implementations<CR>', { desc = "FzfLua: LSP implementations" })
-keymap("n", "<leader>zls", '<cmd>FzfLua lsp_document_symbols<CR>', { desc = "FzfLua: Document symbols" })
-keymap("n", "<leader>zlw", '<cmd>FzfLua lsp_workspace_symbols<CR>', { desc = "FzfLua: Workspace symbols" })
-keymap("n", "<leader>zla", '<cmd>FzfLua lsp_code_actions<CR>', { desc = "FzfLua: Code actions" })
-keymap("n", "<leader>zlt", '<cmd>FzfLua lsp_typedefs<CR>', { desc = "FzfLua: Type definitions" })
+keymap("n", "<leader>flr", '<cmd>FzfLua lsp_references<CR>', { desc = "FzfLua: LSP references" })
+keymap("n", "<leader>fld", '<cmd>FzfLua lsp_definitions<CR>', { desc = "FzfLua: LSP definitions" })
+keymap("n", "<leader>fli", '<cmd>FzfLua lsp_implementations<CR>', { desc = "FzfLua: LSP implementations" })
+keymap("n", "<leader>fls", '<cmd>FzfLua lsp_document_symbols<CR>', { desc = "FzfLua: Document symbols" })
+keymap("n", "<leader>flw", '<cmd>FzfLua lsp_workspace_symbols<CR>', { desc = "FzfLua: Workspace symbols" })
+keymap("n", "<leader>fla", '<cmd>FzfLua lsp_code_actions<CR>', { desc = "FzfLua: Code actions" })
+keymap("n", "<leader>flt", '<cmd>FzfLua lsp_typedefs<CR>', { desc = "FzfLua: Type definitions" })
 
 -- Diagnostics
-keymap("n", "<leader>zdd", '<cmd>FzfLua diagnostics_document<CR>', { desc = "FzfLua: Document diagnostics" })
-keymap("n", "<leader>zdw", '<cmd>FzfLua diagnostics_workspace<CR>', { desc = "FzfLua: Workspace diagnostics" })
+keymap("n", "<leader>fdd", '<cmd>FzfLua diagnostics_document<CR>', { desc = "FzfLua: Document diagnostics" })
+keymap("n", "<leader>fdw", '<cmd>FzfLua diagnostics_workspace<CR>', { desc = "FzfLua: Workspace diagnostics" })
 
 -- Misc/Utility
-keymap("n", "<leader>zz", '<cmd>FzfLua resume<CR>', { desc = "FzfLua: Resume last picker" })
-keymap("n", "<leader>z?", '<cmd>FzfLua builtin<CR>', { desc = "FzfLua: Builtin commands" })
-keymap("n", "<leader>zc", '<cmd>FzfLua commands<CR>', { desc = "FzfLua: Commands" })
-keymap("n", "<leader>z:", '<cmd>FzfLua command_history<CR>', { desc = "FzfLua: Command history" })
-keymap("n", "<leader>zm", '<cmd>FzfLua marks<CR>', { desc = "FzfLua: Marks" })
-keymap("n", "<leader>zr", '<cmd>FzfLua registers<CR>', { desc = "FzfLua: Registers" })
-keymap("n", "<leader>zk", '<cmd>FzfLua keymaps<CR>', { desc = "FzfLua: Keymaps" })
-keymap("n", "<leader>zH", '<cmd>FzfLua helptags<CR>', { desc = "FzfLua: Help tags" })
-keymap("n", "<leader>zM", '<cmd>FzfLua man_pages<CR>', { desc = "FzfLua: Man pages" })
-keymap("n", "<leader>zq", '<cmd>FzfLua quickfix<CR>', { desc = "FzfLua: Quickfix" })
-keymap("n", "<leader>zQ", '<cmd>FzfLua loclist<CR>', { desc = "FzfLua: Location list" })
+keymap("n", "<leader>fz", '<cmd>FzfLua resume<CR>', { desc = "FzfLua: Resume last picker" })
+keymap("n", "<leader>f?", '<cmd>FzfLua builtin<CR>', { desc = "FzfLua: Builtin commands" })
+keymap("n", "<leader>fc", '<cmd>FzfLua commands<CR>', { desc = "FzfLua: Commands" })
+keymap("n", "<leader>f:", '<cmd>FzfLua command_history<CR>', { desc = "FzfLua: Command history" })
+keymap("n", "<leader>fm", '<cmd>FzfLua marks<CR>', { desc = "FzfLua: Marks" })
+keymap("n", "<leader>fr", '<cmd>FzfLua registers<CR>', { desc = "FzfLua: Registers" })
+keymap("n", "<leader>fk", '<cmd>FzfLua keymaps<CR>', { desc = "FzfLua: Keymaps" })
+keymap("n", "<leader>fH", '<cmd>FzfLua helptags<CR>', { desc = "FzfLua: Help tags" })
+keymap("n", "<leader>fM", '<cmd>FzfLua man_pages<CR>', { desc = "FzfLua: Man pages" })
+keymap("n", "<leader>fq", '<cmd>FzfLua quickfix<CR>', { desc = "FzfLua: Quickfix" })
+keymap("n", "<leader>fQ", '<cmd>FzfLua loclist<CR>', { desc = "FzfLua: Location list" })
+
+-- Harpoon
+local harpoon = require('harpoon')
+keymap('n', '<leader>m', function() harpoon:list():add() end, { desc = 'Harpoon: add file' })
+keymap('n', '<M-n>',     function() harpoon:list():next() end, { desc = 'Harpoon: next file' })
+keymap('n', '<M-p>',     function() harpoon:list():prev() end, { desc = 'Harpoon: prev file' })
+keymap('n', '<leader>l', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Harpoon: list files' })
+keymap('n', '<M-1>', function() harpoon:list():select(1) end, { desc = 'Harpoon: select 1' })
+keymap('n', '<M-2>', function() harpoon:list():select(2) end, { desc = 'Harpoon: select 2' })
+keymap('n', '<M-3>', function() harpoon:list():select(3) end, { desc = 'Harpoon: select 3' })
+keymap('n', '<M-4>', function() harpoon:list():select(4) end, { desc = 'Harpoon: select 4' })
+
+-- Flash
+keymap({ "n", "x", "o" }, "gs", function() require("flash").jump() end, { desc = "Flash" })
+keymap({ "n", "x", "o" }, "gS", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
+keymap("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
+keymap({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
+keymap("c", "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
+
+
+-- ~/.config/nvim-new/lua/keymaps.lua
+keymap("n", "<Leader>d", "<cmd>Ex %:p:h<CR>") -- Open Netrw in the current file's directory
+
