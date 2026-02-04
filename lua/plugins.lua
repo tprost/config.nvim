@@ -126,7 +126,12 @@ require("nvim-treesitter.configs").setup({
 		"cpp",
 		"python",
 		"rust",
-        "javascript"
+        "javascript",
+        "zig",
+        "haskell",
+        "typescript",
+        "javascript",
+        "tsx"
 	},
 	auto_install = false,
 	highlight = {
