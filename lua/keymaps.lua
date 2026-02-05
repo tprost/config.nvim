@@ -125,5 +125,7 @@ keymap("c", "<c-s>", function() require("flash").toggle() end, { desc = "Toggle 
 
 
 -- ~/.config/nvim-new/lua/keymaps.lua
-keymap("n", "<Leader>d", "<cmd>Ex %:p:h<CR>") -- Open Netrw in the current file's directory
-
+keymap("n", "<Leader>d", "<cmd>Ex %:p:h<CR>") -- Open Netrw in the current file's directoryg
+vim.keymap.set("n", "gf", function()
+  vim.lsp.buf.format({ async = true })
+end)
