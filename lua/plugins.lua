@@ -58,7 +58,7 @@ require('blink.cmp').setup({
         },
     },
 
-    sources = { default = { "lsp" } }
+    sources = { default = { "lsp", "path", "snippets", "buffer" } }
 })
 
 -- ~/.config/nvim-new/lua/plugins.lua
@@ -131,7 +131,8 @@ require("nvim-treesitter.configs").setup({
         "haskell",
         "typescript",
         "javascript",
-        "tsx"
+        "tsx",
+        "markdown"
 	},
 	auto_install = false,
 	highlight = {
