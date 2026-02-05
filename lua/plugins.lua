@@ -132,7 +132,8 @@ require("nvim-treesitter.configs").setup({
         "typescript",
         "javascript",
         "tsx",
-        "markdown"
+        "markdown",
+        "go"
 	},
 	auto_install = false,
 	highlight = {
